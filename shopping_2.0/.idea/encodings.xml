@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_buyer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_page" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_sellergoods" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_shop" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_user" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

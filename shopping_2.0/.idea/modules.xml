@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/parent.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shoping_dao/shoping_dao.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shoping_dao/shoping_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shoping_pojo/shoping_pojo.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shoping_pojo/shoping_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_common/shopping_common.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_common/shopping_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_interface/shopping_interface.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_interface/shopping_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_buyer/shopping_service_buyer.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_buyer/shopping_service_buyer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_page/shopping_service_page.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_page/shopping_service_page.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_search/shopping_service_search.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_search/shopping_service_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_sellergoods/shopping_service_sellergoods.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_sellergoods/shopping_service_sellergoods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_user/shopping_service_user.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_service_user/shopping_service_user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_manager/shopping_web_manager.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_manager/shopping_web_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_portal/shopping_web_portal.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_portal/shopping_web_portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_shop/shopping_web_shop.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_shop/shopping_web_shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_user/shopping_web_user.iml" filepath="$PROJECT_DIR$/../shopping_1.0/parent/shopping_web_user/shopping_web_user.iml" />
+    </modules>
+  </component>
+</project>
