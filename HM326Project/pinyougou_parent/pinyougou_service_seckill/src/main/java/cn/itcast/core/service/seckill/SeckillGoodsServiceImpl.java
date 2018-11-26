@@ -1,6 +1,7 @@
 package cn.itcast.core.service.seckill;
 
 import cn.itcast.core.dao.seckill.SeckillGoodsDao;
+import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.seckill.SeckillGoods;
 import cn.itcast.core.pojo.seckill.SeckillGoodsQuery;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -44,5 +45,11 @@ public class SeckillGoodsServiceImpl implements SeckillGoodsService {
     @Override
     public SeckillGoods findOneFromRedis(Long id) {
         return (SeckillGoods) redisTemplate.boundHashOps("seckillGoods").get(id);
+    }
+
+    @Override
+    public void add(Goods goods) {
+
+
     }
 }
