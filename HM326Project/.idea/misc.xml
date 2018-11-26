@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_buyer" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_page" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_pay" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_search" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_seckill" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_sellergoods" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_sms" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_service_user" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_manager" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_portal" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_seckill" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_shop" />
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_user" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pinyougou_parent/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
