@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="pinyougou_service_seckill:war">
-    <output-path>$PROJECT_DIR$/pinyougou_parent/pinyougou_service_seckill/target</output-path>
-    <root id="archive" name="pinyougou_service_seckill.war">
-      <element id="artifact" artifact-name="pinyougou_service_seckill:war exploded" />
-    </root>
-  </artifact>
-</component>
