@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="pinyougou_service_sms:war">
-    <output-path>$PROJECT_DIR$/pinyougou_parent/pinyougou_service_sms/target</output-path>
-    <root id="archive" name="pinyougou_service_sms.war">
-      <element id="artifact" artifact-name="pinyougou_service_sms:war exploded" />
-    </root>
-  </artifact>
-</component>
