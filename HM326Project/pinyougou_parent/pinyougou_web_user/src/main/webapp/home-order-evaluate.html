@@ -10,6 +10,11 @@
 
     <link rel="stylesheet" type="text/css" href="css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="css/pages-seckillOrder.css" />
+
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/service/loginService.js"></script>
+    <script type="text/javascript" src="js/controller/indexController.js"></script>
 </head>
 
 <body>
@@ -21,10 +26,17 @@
 		<div class="top">
 			<div class="py-container">
 				<div class="shortcut">
-					<ul class="fl">
-						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
-					</ul>
+                    <ul class="fl">
+                        <li class="f-item">品优购欢迎您！</li>
+                        <li class="f-item">请
+                            <span ng-if="loginname==''">
+							<a href="login.html">登录</a>
+						</span>
+                            <span ng-if="loginname!=''">
+							{{loginname}} <a href="logout/cas">退出登录</a>
+						</span>
+                            <span><a href="#">免费注册</a></span></li>
+                    </ul>
 					<ul class="fr">
 						<li class="f-item">我的订单</li>
 						<li class="f-item space"></li>
@@ -153,8 +165,8 @@ $(function(){
                     <div class="person-info">
                         <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
                         <div class="person-account">
-                            <span class="name">Michelle</span>
-                            <span class="safe">账户安全</span>
+                            <span class="name">{{loginName}}</span>
+                            <span class="safe"><a href="logout/cas">退出登录 </a></span>
                         </div>
                         <div class="clearfix"></div>
                     </div>

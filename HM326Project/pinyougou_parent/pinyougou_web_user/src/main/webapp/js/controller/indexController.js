@@ -35,4 +35,14 @@ app.controller('indexController',function($scope,loginService,userService){
         // $scope.findByPage($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
         $scope.search($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
     }
+
+
+    $scope.addInfo=function(){
+        userAddressService.update($scope.entity).success(
+            function(response){
+                alert(response.message);
+
+            }
+        )
+    }
 });
