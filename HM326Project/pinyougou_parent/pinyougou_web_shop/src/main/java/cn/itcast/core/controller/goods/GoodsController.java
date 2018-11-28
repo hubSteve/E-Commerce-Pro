@@ -6,6 +6,7 @@ import cn.itcast.core.service.goods.GoodsService;
 import cn.itcast.core.vo.GoodsVo;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class GoodsController {
     private GoodsService goodsService;
 
     @RequestMapping("add")
-    public Result add(@RequestBody GoodsVo goodsVo){
+    public Result add(@RequestBody GoodsVo goodsVo ){
         try {
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
             goodsVo.getGoods().setSellerId(name);
