@@ -12,7 +12,7 @@
     <!-- 真正可以产生 Connection 的 ConnectionFactory，由对应的 JMS 服务厂商提供-->
     <bean id="targetConnectionFactory"
           class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="tcp://192.168.200.128:61616"/>
+        <property name="brokerURL" value="tcp://192.168.23.67:61616"/>
     </bean>
     <!-- Spring 用于管理真正的 ConnectionFactory 的 ConnectionFactory -->
     <bean id="connectionFactory"

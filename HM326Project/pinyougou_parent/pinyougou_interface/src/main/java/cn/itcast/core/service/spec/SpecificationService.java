@@ -10,7 +10,8 @@ import java.util.Map;
 
 public interface SpecificationService {
 
-    PageInfo<Specification> search(Integer page,Integer rows,Specification specification);
+    public PageInfo<Specification> search(Integer page, Integer rows, Specification specification);
+
 
     void add(SpecificationVo specificationVo);
 
