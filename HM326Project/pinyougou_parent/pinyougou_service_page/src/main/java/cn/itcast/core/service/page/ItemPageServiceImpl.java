@@ -71,7 +71,8 @@ public class ItemPageServiceImpl implements ItemPageService {
             List<Item> itemList = itemDao.selectByExample(itemQuery);
             dataModel.put("itemList",itemList);
 
-            OutputStreamWriter out=new OutputStreamWriter(new FileOutputStream(pagedir+goodsId+".html"),"UTF-8");
+            OutputStreamWriter out = new OutputStreamWriter(
+                    new FileOutputStream(pagedir + goodsId + ".html"), "UTF-8");
             template.process(dataModel,out);
             out.close();
             return true;
