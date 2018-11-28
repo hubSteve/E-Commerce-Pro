@@ -7,4 +7,5 @@ import java.util.List;
 public interface AddressService {
 
     List<Address> findListByUserId(String userId);
+
 }
