@@ -56,7 +56,7 @@ public class ContentServiceImpl implements ContentService {
 	public void edit(Content content) {
 		Long newCategoryId = content.getCategoryId();
 		Long oldCategoryId = contentDao.selectByPrimaryKey(content.getId()).getCategoryId();
-		if (newCategoryId!=oldCategoryId){
+		if (newCategoryId != oldCategoryId){
 			clearCache(newCategoryId);
 			clearCache(oldCategoryId);
 		}else {

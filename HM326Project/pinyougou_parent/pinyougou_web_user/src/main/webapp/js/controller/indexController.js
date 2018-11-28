@@ -1,5 +1,6 @@
 //首页控制器
-app.controller('indexController',function($scope,loginService){
+app.controller('indexController',function($scope,loginService,userAddressService){
+
 	$scope.showName=function(){
 			loginService.showName().success(
 					function(response){
@@ -7,4 +8,14 @@ app.controller('indexController',function($scope,loginService){
 					}
 			);
 	}
+
+
+    $scope.addInfo=function(){
+        userAddressService.update($scope.entity).success(
+            function(response){
+                alert(response.message);
+
+            }
+        )
+    }
 });

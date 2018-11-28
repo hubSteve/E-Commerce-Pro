@@ -18,7 +18,7 @@
     
 </head>
 
-<body  ng-app="pinyougou" ng-controller="indexController" ng-init="showName()">
+<body ng-app="pinyougou" ng-controller="indexController" ng-init="showName()">
     <!-- 头部栏位 -->
     <!--页面顶部-->
 <div id="nav-bottom">
@@ -27,10 +27,17 @@
 		<div class="top">
 			<div class="py-container">
 				<div class="shortcut">
-					<ul class="fl">
-						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
-					</ul>
+                    <ul class="fl">
+                        <li class="f-item">品优购欢迎您！</li>
+                        <li class="f-item">请
+                            <span ng-if="loginname==''">
+							<a href="login.html">登录</a>
+						</span>
+                            <span ng-if="loginname!=''">
+							{{loginname}} <a href="logout/cas">退出登录</a>
+						</span>
+                            <span><a href="#">免费注册</a></span></li>
+                    </ul>
 					<ul class="fr">
 						<li class="f-item">我的订单</li>
 						<li class="f-item space"></li>

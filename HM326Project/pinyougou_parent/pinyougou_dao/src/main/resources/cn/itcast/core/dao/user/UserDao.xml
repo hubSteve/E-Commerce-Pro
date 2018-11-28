@@ -93,7 +93,7 @@
       ${fields}
     </if>
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.itcast.core.pojo.user.UserQuery" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.itcast.core.pojo.user.UserQuery"  >
     select
     <if test="distinct" >
       distinct
