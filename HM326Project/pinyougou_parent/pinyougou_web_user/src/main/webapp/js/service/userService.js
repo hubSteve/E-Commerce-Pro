@@ -33,5 +33,8 @@ app.service('userService',function($http){
 	this.sendCode=function(phone){
 		return $http.get('../user/sendCode.do?phone='+phone);
 	}
-	
+	//查询用户订单
+    this.findCartList=function () {
+        return $http.get('../user/findCartList.do');
+    }
 });

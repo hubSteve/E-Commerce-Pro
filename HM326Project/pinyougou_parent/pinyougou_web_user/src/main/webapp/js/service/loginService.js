@@ -4,5 +4,9 @@ app.service('loginService',function($http){
 	this.showName=function(){
 		return $http.get('../login/name.do');
 	}
+
+    this.search = function(page,rows){
+        return $http.post("../user/pageInfoOrdeList.do?pageNum="+page+"&pageSize="+rows);
+    }
 	
 });

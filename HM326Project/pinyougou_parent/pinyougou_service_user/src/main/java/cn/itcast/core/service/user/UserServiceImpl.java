@@ -1,9 +1,17 @@
 package cn.itcast.core.service.user;
 
+
+import cn.itcast.core.dao.order.OrderDao;
 import cn.itcast.core.dao.user.UserDao;
+import cn.itcast.core.pojo.order.Order;
+import cn.itcast.core.pojo.order.OrderQuery;
 import cn.itcast.core.pojo.user.User;
+import cn.itcast.core.pojo.user.UserQuery;
 import cn.itcast.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.core.JmsTemplate;
@@ -13,11 +21,15 @@ import javax.annotation.Resource;
 import javax.jms.Destination;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Resource
+    private OrderDao orderDao;
 
     @Resource
     private UserDao userDao;
@@ -65,5 +77,40 @@ public class UserServiceImpl implements UserService {
         }else {
             return false;
         }
+    }
+
+    @Override
+    public List<Order> findCartList(String userId) {
+        OrderQuery orderQuery = new OrderQuery();
+        orderQuery.createCriteria().andUserIdEqualTo(userId);
+        return orderDao.selectByExample(orderQuery);
+    }
+
+    @Override
+    public PageInfo<Order> abfindCartList(Integer Page, Integer pageSize, String username) {
+        //获取当前用户id
+        UserQuery userQuery = new UserQuery();
+        userQuery.createCriteria().andUsernameEqualTo(username);
+        List<User> users = userDao.selectByExample(userQuery);
+        Long orderId =null;
+        for (User user : users) {
+            orderId = user.getId();
+        }
+
+
+        //根据id 查询订单
+        PageHelper.startPage(Page,pageSize );
+        OrderQuery orderQuery = new OrderQuery();
+        OrderQuery.Criteria criteria = orderQuery.createCriteria();
+        if (orderId!=null &&!"".equals(orderId))
+        //封装检索条件
+        {
+            criteria.andOrderIdEqualTo(orderId);
+
+        }
+        List<Order> orders = orderDao.selectByExample(orderQuery);
+
+        PageInfo<Order> pageInfo =new PageInfo<>(orders);
+        return pageInfo;
     }
 }

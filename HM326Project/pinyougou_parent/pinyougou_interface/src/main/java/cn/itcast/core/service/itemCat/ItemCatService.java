@@ -1,5 +1,6 @@
 package cn.itcast.core.service.itemCat;
 
+import cn.itcast.core.pojo.item.Item;
 import cn.itcast.core.pojo.item.ItemCat;
 
 
@@ -14,4 +15,7 @@ public interface ItemCatService {
     ItemCat findOne(long id);
 
     List<ItemCat> findAll();
+
+    public List<ItemCat> findItemCatList();
+
 }
