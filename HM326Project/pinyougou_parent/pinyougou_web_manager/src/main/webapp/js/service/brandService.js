@@ -31,4 +31,14 @@ app.service("brandService",function($http){
 	this.selectOptionList = function(){
 		return $http.get("../brand/selectOptionList.do");
 	}
+
+    //查询status==0的品牌
+    this.searchforStatus = function(page,rows,searchEntity){
+        return $http.post("../brand/searchforStatus.do?pageNum="+page+"&pageSize="+rows,searchEntity);
+    }
+
+    //审核的方法
+    this.updateStatus = function(ids,status){
+        return $http.get('../brand/updateStatus.do?ids='+ids+"&status="+status);
+    }
 });

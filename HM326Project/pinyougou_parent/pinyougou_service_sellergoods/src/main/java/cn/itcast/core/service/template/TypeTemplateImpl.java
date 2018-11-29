@@ -2,15 +2,18 @@ package cn.itcast.core.service.template;
 
 import cn.itcast.core.dao.specification.SpecificationOptionDao;
 import cn.itcast.core.dao.template.TypeTemplateDao;
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.pojo.specification.SpecificationOption;
 import cn.itcast.core.pojo.specification.SpecificationOptionQuery;
 import cn.itcast.core.pojo.template.TypeTemplate;
 import cn.itcast.core.pojo.template.TypeTemplateQuery;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -86,6 +89,43 @@ public class TypeTemplateImpl implements TypeTemplateService {
 
         }
         return list;
+    }
+
+    //查询status==1的模板
+    @Override
+    public PageResult searchTemlListByStatus(Integer page, Integer rows, TypeTemplate typeTemplate) {
+        PageHelper.startPage(page,rows);
+        TypeTemplateQuery typeTemplateQuery=null;
+        if(typeTemplate!=null){
+            typeTemplateQuery=new TypeTemplateQuery();
+            TypeTemplateQuery.Criteria criteria = typeTemplateQuery.createCriteria();
+            if(typeTemplate.getName()!=null && !"".equals(typeTemplate.getName().trim())){
+                criteria.andNameLike("%"+typeTemplate.getName()+"%");
+            }
+            if(typeTemplate.getStatus()!=null && !"".equals(typeTemplate.getStatus().trim())){
+                criteria.andStatusEqualTo(typeTemplate.getStatus().trim());
+            }
+
+            typeTemplateQuery.setOrderByClause("id desc");
+        }
+        Page<TypeTemplate>page1= (Page<TypeTemplate>) typeTemplateDao.selectByExample(typeTemplateQuery);
+
+
+        return new PageResult(page1.getTotal(),page1.getResult());
+    }
+
+    //审核方法
+    @Override
+    @Transactional
+    public void updateStatus(long[] ids, String status) {
+        if(ids!=null && ids.length>0){
+            TypeTemplate typeTemplate=new TypeTemplate();
+            typeTemplate.setStatus(status);
+            for (long id : ids) {
+                typeTemplate.setId(id);
+                typeTemplateDao.updateByPrimaryKeySelective(typeTemplate);
+            }
+        }
     }
 
     /**商品分类添加 查询模板信息

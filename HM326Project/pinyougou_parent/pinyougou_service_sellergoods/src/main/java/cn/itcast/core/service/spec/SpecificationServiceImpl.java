@@ -2,12 +2,14 @@ package cn.itcast.core.service.spec;
 
 import cn.itcast.core.dao.specification.SpecificationDao;
 import cn.itcast.core.dao.specification.SpecificationOptionDao;
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.pojo.specification.Specification;
 import cn.itcast.core.pojo.specification.SpecificationOption;
 import cn.itcast.core.pojo.specification.SpecificationOptionQuery;
 import cn.itcast.core.pojo.specification.SpecificationQuery;
 import cn.itcast.core.vo.SpecificationVo;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.transaction.annotation.Transactional;
@@ -105,5 +107,55 @@ public class SpecificationServiceImpl implements SpecificationService {
     @Override
     public List<Map<String, String>> selectOptionList() {
         return specificationDao.selectOptionList();
+    }
+
+    //显示所有status==0的规格
+    @Override
+    public PageResult findSpecByStatus(Integer page, Integer rows, Specification specification) {
+        //分页条件
+        PageHelper.startPage(page,rows);
+        //查询条件
+       SpecificationQuery specificationQuery=null;
+       if(specification!=null){
+           specificationQuery=new SpecificationQuery();
+
+           SpecificationQuery.Criteria criteria = specificationQuery.createCriteria();
+
+           if(specification.getSpecName()!=null && !"".equals(specification.getSpecName().trim())){
+               criteria.andSpecNameLike("%"+specification.getSpecName().trim()+"%");
+           }
+           if(specification.getStatus()!=null && !"".equals(specification.getStatus().trim())){
+                criteria.andStatusEqualTo(specification.getStatus());
+           }
+           specificationQuery.setOrderByClause("id desc");
+       }
+
+       Page<Specification> page1= (Page<Specification>) specificationDao.selectByExample(specificationQuery);
+
+        return new PageResult(page1.getTotal(),page1.getResult());
+    }
+
+    @Override
+    @Transactional
+    public void updateStatus(long[] ids, String status) {
+        if(ids!=null && ids.length>0){
+            Specification specification=new Specification();
+            specification.setStatus(status);
+            for (long id : ids) {
+                specification.setId(id);
+                specificationDao.updateByPrimaryKeySelective(specification);
+            }
+        }
+    }
+
+
+
+	@Override
+    public void addSpecList(List<Specification> specificationList) {
+        if (specificationList!=null && specificationList.size()>0){
+            for (Specification specification : specificationList) {
+                specificationDao.insert(specification);
+            }
+        }
     }
 }

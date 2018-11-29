@@ -2,7 +2,7 @@
 app.controller("brandController",function($scope,$controller,$http,brandService){
 	// AngularJS中的继承:伪继承
 	$controller('baseController',{$scope:$scope});
-	
+
 	// 查询所有的品牌列表的方法:
 	$scope.findAll = function(){
 		// 向后台发送请求:
@@ -80,5 +80,7 @@ app.controller("brandController",function($scope,$controller,$http,brandService)
 			$scope.list = response.list;
 		});
 	}
-	
+
+
+
 });

@@ -1,5 +1,6 @@
 package cn.itcast.core.controller.itemCat;
 
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.entity.Result;
 import cn.itcast.core.pojo.item.ItemCat;
 import cn.itcast.core.service.itemCat.ItemCatService;
@@ -96,4 +97,28 @@ public class ItemCatController {
     }
 
 
+    @RequestMapping("findOne")
+    public ItemCat findOne(long id){
+        return itemCatService.findOne(id);
+    }
+
+    //查询所有的statsu==0的商品分类
+    @RequestMapping("searchItemCatListByStatus")
+    public PageResult searchItemCatListByStatus(Integer page,Integer rows,@RequestBody ItemCat itemCat){
+        PageResult pageResult = itemCatService.searchItemCatListByStatus(page, rows, itemCat);
+        return pageResult;
+    }
+
+    //审核
+    @RequestMapping("updateStatus")
+    public Result updateStatus(long[]ids,String status){
+        try{
+            itemCatService.updateStatus(ids, status);
+            return new Result(true,"操作成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,"操作失败");
+
+        }
+    }
 }

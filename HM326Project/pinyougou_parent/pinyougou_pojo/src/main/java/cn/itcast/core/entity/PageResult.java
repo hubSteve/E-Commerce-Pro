@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.List;
 
 public class PageResult implements Serializable {
+    private Long total;
+    private List rows;
 
     private Long total; //总条数
     private List rows;  // 结果集
