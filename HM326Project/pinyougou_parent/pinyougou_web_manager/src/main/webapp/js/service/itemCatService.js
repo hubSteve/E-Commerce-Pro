@@ -33,4 +33,14 @@ app.service('itemCatService',function($http){
 	this.findByParentId = function(parentId){
 		return $http.get("../itemCat/findByParentId.do?parentId="+parentId);
 	}
+
+    //查询所有的statsu==0的商品分类
+    this.searchItemCatListByStatus=function(page,rows,searchEntity){
+        return $http.post('../itemCat/searchItemCatListByStatus.do?page='+page+"&rows="+rows, searchEntity);
+    }
+
+    //审核
+    this.updateStatus=function(ids,status){
+        return $http.post('../itemCat/updateStatus.do?ids='+ids+"&status="+status);
+    }
 });

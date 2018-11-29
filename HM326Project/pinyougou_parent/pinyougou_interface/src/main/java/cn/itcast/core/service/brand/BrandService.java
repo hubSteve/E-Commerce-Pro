@@ -1,5 +1,6 @@
 package cn.itcast.core.service.brand;
 
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.pojo.good.Brand;
 import com.github.pagehelper.PageInfo;
 
@@ -23,4 +24,8 @@ public interface BrandService {
     void delete(long[] ids);
 
     List<Map<String,String>> selectOptionList();
+    //显示所有状态为1的品牌
+    PageResult searchforStatus(Integer pageNum, Integer pageSize, Brand brand);
+    //审核品牌
+    void updateStatus(long[]ids,String status);
 }

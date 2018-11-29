@@ -1,5 +1,6 @@
 package cn.itcast.core.controller.spec;
 
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.entity.Result;
 import cn.itcast.core.pojo.specification.Specification;
 import cn.itcast.core.service.spec.SpecificationService;
@@ -66,5 +67,23 @@ public class SpecificationController {
     @RequestMapping("selectOptionList")
     public List<Map<String,String>> selectOptionList(){
         return specificationService.selectOptionList();
+    }
+
+    //显示所有status=0的规格
+    @RequestMapping("findSpecByStatus")
+    public PageResult findSpecByStatus(Integer page, Integer rows, @RequestBody Specification specification){
+        PageResult pageResult = specificationService.findSpecByStatus(page, rows, specification);
+        return pageResult;
+    }
+    //审核方法
+    @RequestMapping("updateStatus")
+    public Result updateStatus(long[]ids,String status){
+       try{
+        specificationService.updateStatus(ids, status);
+        return new Result(true,"操作成功");
+       }catch (Exception e){
+           e.printStackTrace();
+           return new Result(false,"操作失败");
+       }
     }
 }
