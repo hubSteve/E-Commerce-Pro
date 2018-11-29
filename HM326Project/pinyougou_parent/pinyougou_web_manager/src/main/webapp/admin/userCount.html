@@ -46,10 +46,10 @@
                             </div>
                             <div class="box-tools pull-right">
                                 <div class="has-feedback">
-                                    状态：<select ng-model="searchEntity.status">
-                                    <option value="">全部</option>
-                                    <option value="0">正常态</option>
-                                    <option value="1">非常态</option>
+									状态</span>：<select ng-model="searchEntity.status" ng-init="searchEntity.status='Y'" >
+                                    <!--<option value="">请选择</option>-->
+                                    <option  ng-selected="true" value="Y"><span style="color: chartreuse">正常态</span></option>
+                                    <option value="N"><span style="color: red">非常态</span></option>
                                 </select>
 									用户昵称:<input type="text" ng-model="searchEntity.nickName"> 用户名称:<input type="text" ng-model="searchEntity.username"> <input class="btn btn-default" ng-click="reloadList()" type="button" value="查询">
                                 </div>

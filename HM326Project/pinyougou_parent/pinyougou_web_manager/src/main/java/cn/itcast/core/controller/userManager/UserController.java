@@ -26,6 +26,7 @@ public class UserController {
     @RequestMapping("/search.do")
     public PageInfo<User> search(int pageNum , int pageSize, @RequestBody User user){
 
+
         return  userService.search(pageNum,pageSize,user);
     }
 

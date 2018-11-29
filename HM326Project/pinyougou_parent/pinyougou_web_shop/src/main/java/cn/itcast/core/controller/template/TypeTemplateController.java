@@ -34,7 +34,6 @@ public class TypeTemplateController {
     @RequestMapping("search")
     public PageInfo<TypeTemplate> search(Integer page, Integer rows, @RequestBody TypeTemplate typeTemplate){
 
-        System.out.println("第三个发动机可发挥过圣诞节和分公司电话"+typeTemplateService.search(page,rows,typeTemplate));
         return typeTemplateService.search(page,rows,typeTemplate);
     }
 
