@@ -56,6 +56,7 @@ public class TypeTemplateImpl implements TypeTemplateService {
 
     @Override
     public void add(TypeTemplate typeTemplate) {
+        typeTemplate.setStatus("0");
         typeTemplateDao.insertSelective(typeTemplate);
     }
 
@@ -85,5 +86,24 @@ public class TypeTemplateImpl implements TypeTemplateService {
 
         }
         return list;
+    }
+
+    /**商品分类添加 查询模板信息
+     * @return {id:"",text:" "} 格式
+     */
+    @Override
+    public List<Map> selectTypeTemplateList() {
+        return typeTemplateDao.selectTypeTemplateList();
+    }
+
+
+    @Override
+    public void delete(long[] ids) {
+        if (ids!=null&&ids.length>0){
+            for (long id : ids) {
+                typeTemplateDao.deleteByPrimaryKey(id);
+            }
+        }
+
     }
 }

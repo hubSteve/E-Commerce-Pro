@@ -46,7 +46,7 @@
                             </div>
                             <div class="box-tools pull-right">
                                 <div class="has-feedback">
-							          品牌名称:<input type="text" ng-model="searchEntity.name"> 品牌首字母:<input type="text" ng-model="searchEntity.firstChar"> <input class="btn btn-default" ng-click="reloadList()" type="button" value="查询">                               
+									状态:<input type="text" ng-model="searchEntity.status"> 品牌名称:<input type="text" ng-model="searchEntity.name"> 品牌首字母:<input type="text" ng-model="searchEntity.firstChar"> <input class="btn btn-default" ng-click="reloadList()" type="button" value="查询">
                                 </div>
                             </div>
                             <!--工具栏/-->
@@ -61,6 +61,7 @@
 										  <th class="sorting_asc">品牌ID</th>
 									      <th class="sorting">品牌名称</th>									      
 									      <th class="sorting">品牌首字母</th>									     				
+									      <th class="sorting">状态</th>
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
@@ -69,8 +70,15 @@
 			                              <td><input  type="checkbox" ng-click="updateSelection($event,entity.id)"></td>
 				                          <td>{{entity.id}}</td>
 									      <td>{{entity.name}}</td>									     
-		                                  <td>{{entity.firstChar}}</td>		                                 
-		                                  <td class="text-center">                                           
+		                                  <td>{{entity.firstChar}}</td>
+
+										  <td>
+		                                  	<span>
+		                                  		{{status[entity.status]}}
+		                                  	</span>
+										  </td>
+
+		                                  <td class="text-center">
 		                                 	  <button type="button" class="btn bg-olive btn-xs" ng-click="findById(entity.id)" data-toggle="modal" data-target="#editModal"  >修改</button>                                           
 		                                  </td>
 			                          </tr>

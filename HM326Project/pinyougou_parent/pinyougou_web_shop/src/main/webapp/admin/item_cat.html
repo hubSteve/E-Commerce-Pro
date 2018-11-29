@@ -78,7 +78,8 @@
 										  <th class="sorting_asc">分类ID</th>
 									      <th class="sorting">分类名称</th>									   
 									      <th class="sorting">类型模板ID</th>
-									     						
+									      <th class="sorting">状态</th>
+
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
@@ -89,7 +90,14 @@
 									      <td>{{entity.name}}</td>									    
 									      <td>
 									      	{{entity.typeId}}  
-									      </td>									      
+									      </td>
+
+										  <td>
+		                                  	<span>
+		                                  		{{status[entity.status]}}
+		                                  	</span>
+										  </td>
+
 		                                  <td class="text-center">		      
 			                                  <span ng-if="grade != 3">                          
 			                                      <button type="button" ng-click="setGrade(grade+1);selectList(entity);" class="btn bg-olive btn-xs" >查询下级</button> 		                                     

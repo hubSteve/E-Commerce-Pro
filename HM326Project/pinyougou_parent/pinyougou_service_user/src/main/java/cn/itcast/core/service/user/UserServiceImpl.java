@@ -2,9 +2,13 @@ package cn.itcast.core.service.user;
 
 import cn.itcast.core.dao.user.UserDao;
 import cn.itcast.core.pojo.user.User;
+import cn.itcast.core.pojo.user.UserQuery;
 import cn.itcast.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.core.JmsTemplate;
 
@@ -13,6 +17,7 @@ import javax.annotation.Resource;
 import javax.jms.Destination;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -64,6 +69,85 @@ public class UserServiceImpl implements UserService {
             return true;
         }else {
             return false;
+        }
+    }
+
+
+    /** 运营商后台查询用户信息分页查询
+     * @param pageNum
+     * @param pageSize
+     * @param user
+     * @return
+     */
+    @Override
+    public PageInfo<User> search(int pageNum, int pageSize, User user) {
+
+        PageHelper.startPage(pageNum, pageSize);
+        UserQuery userQuery = new UserQuery();
+        UserQuery.Criteria criteria = userQuery.createCriteria();
+        //封装查询条件
+        if (user.getUsername()!=null&& !"".equals(user.getUsername())){
+
+            criteria.andUsernameLike("%"+user.getUsername()+"%");
+        }
+        if (user.getStatus()!=null&& !"".equals(user.getStatus())){
+
+            criteria.andStatusLike ("%"+user.getStatus()+"%");
+        }
+        if (user.getNickName()!=null&& !"".equals(user.getNickName ())){
+
+            criteria.andNickNameLike ("%"+user.getNickName ()+"%");
+        }
+
+
+        List<User> userList = userDao.selectByExample(userQuery);
+
+        return  new PageInfo<>(userList);
+    }
+
+
+    /**运营商后台更新修改用户回显
+     * @param id
+     * @return
+     */
+    @Override
+    public User findOne(long id) {
+        return userDao.selectByPrimaryKey(id);
+    }
+
+
+    /** 运营商修改状态
+     * @param user
+     */
+    @Override
+    public void update(User user) {
+
+        User user1 = new User();
+        if (user.getId()!=null&&!"".equals(user.getId())){
+
+            user1 = userDao.selectByPrimaryKey(user.getId());
+        }else {
+            throw new RuntimeException();
+        }
+
+        if (user.getStatus()!=null&&!"".equals(user.getStatus())){
+
+            user1.setStatus(user.getStatus());
+        }else {
+            throw new RuntimeException();
+        }
+        userDao.updateByPrimaryKeySelective(user1);
+    }
+
+    /** 运营商删除用户
+     * @param ids
+     */
+    @Override
+    public void delete(long[] ids) {
+        if (ids!=null&&ids.length>0){
+            for (long id : ids) {
+                userDao.deleteByPrimaryKey(id);
+            }
         }
     }
 }

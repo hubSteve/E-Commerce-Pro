@@ -33,4 +33,11 @@ app.service('itemCatService',function($http){
 	this.findByParentId = function(parentId){
 		return $http.get("../itemCat/findByParentId.do?parentId="+parentId);
 	}
+
+
+	//查询关联模板信息
+    this.selectTypeTemplateList = function(){
+        return $http.get("../itemCat/selectTypeTemplateList.do");
+    }
+
 });
