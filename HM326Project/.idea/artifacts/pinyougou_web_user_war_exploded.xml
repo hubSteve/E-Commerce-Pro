@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="pinyougou_web_user:war exploded">
-    <output-path />
+    <output-path>$PROJECT_DIR$/pinyougou_parent/pinyougou_web_user/target/pinyougou_web_user</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

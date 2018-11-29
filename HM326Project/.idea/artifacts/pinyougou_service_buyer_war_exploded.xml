@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="pinyougou_service_buyer:war exploded">
-    <output-path />
+    <output-path>$PROJECT_DIR$/pinyougou_parent/pinyougou_service_buyer/target/pinyougou_service_buyer</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
