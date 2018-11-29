@@ -14,7 +14,7 @@
 
     <dubbo:application name="pinyougou_service_buyer"/>
 
-    <dubbo:registry address="zookeeper://192.168.23.75:2181"/>
+    <dubbo:registry address="zookeeper://192.168.23.65:2181"/>
 
     <dubbo:annotation package="cn.itcast.core.service"/>
 
