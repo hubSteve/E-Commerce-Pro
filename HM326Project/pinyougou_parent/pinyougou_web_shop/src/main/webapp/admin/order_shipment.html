@@ -40,7 +40,7 @@
 
 </head>
 
-<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="goodsController" ng-init="findItemCatList()">
+<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="goodsController" ><!--ng-init="findItemCatList()"-->
 <!-- .box-body -->
 
 <div class="box-header with-border">
@@ -66,14 +66,14 @@
         </div>
         <div class="box-tools pull-right">
             <div class="has-feedback">
-                状态：<select ng-model="searchEntity.auditStatus">
+                状态：<select ng-model="searchEntity.status">
                 <option value="">全部</option>
-                <option value="0">未申请</option>
-                <option value="1">审核通过</option>
-                <option value="2">审核未通过</option>
-                <option value="3">关闭</option>
+                <option value="0"> 未付款</option>
+                <option value="1">已付款</option>
+                <option value="2">未发货</option>
+                <option value="3">已发货</option>
             </select>
-                商品名称：<input type="text" ng-model="searchEntity.goodsName">
+                商品订单：<input type="text" ng-model="searchEntity.orderId">
                 <button class="btn btn-default" ng-click="reloadList()">查询</button>
             </div>
         </div>
@@ -86,25 +86,35 @@
                 <th class="" style="padding-right:0px">
                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                 </th>
-                <th class="sorting_asc">商品ID</th>
-                <th class="sorting">商品名称</th>
-                <th class="sorting">商品价格</th>
-                <th class="sorting">一级分类</th>
-                <th class="sorting">二级分类</th>
-                <th class="sorting">三级分类</th>
-                <th class="sorting">状态</th>
-                <th class="text-center">操作</th>
+                <th class="sorting_asc">订单ID</th>
+                <th class="sorting">支付类型</th>
+                <th class="sorting">支付状态</th>
+                <th class="sorting">创建订单时间</th>
+                <!--<th class="sorting">订单更新时间</th>-->
+                <th class="sorting">付款时间</th>
+                <th class="sorting">发货时间</th>
+                <th class="sorting">用户Id</th>
+                <th class="sorting">手机号</th>
+                <th class="sorting">商家ID</th>
+
+                <!--<th class="text-center">操作</th>-->
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="entity in list">
                 <td><input  type="checkbox"></td>
-                <td>{{entity.id}}</td>
-                <td>{{entity.goodsName}}</td>
-                <td>{{entity.price}}</td>
-                <td>{{itemCatList[entity.category1Id]}}</td>
+                <td>{{entity.orderId}}</td>
+                <td>{{entity.paymentType}}</td>
+                <td>{{entity.status}}</td>
+                <td>{{entity.paymentTime}}</td>
+                <td>{{entity.consignTime}}</td>
+                <td>{{entity.userId}}</td>
+                <td>{{entity.receiverMobile}}</td>
+                <td>{{entity.sellerId}}</td>
+
+                <!--<td>{{itemCatList[entity.category1Id]}}</td>
                 <td>{{itemCatList[entity.category2Id]}}</td>
-                <td>{{itemCatList[entity.category3Id]}}</td>
+                <td>{{itemCatList[entity.category3Id]}}</td>-->
                 <td>
 		                                  	<span>
 		                                  		{{status[entity.auditStatus]}}

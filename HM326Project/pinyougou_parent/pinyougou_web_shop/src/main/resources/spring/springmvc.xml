@@ -25,7 +25,7 @@
     <dubbo:annotation package="cn.itcast.core.controller"/>
 
     <!--<dubbo:protocol name="dubbo" port="20880"/>-->
-    <dubbo:consumer timeout="600000000"/>
+    <dubbo:consumer timeout="60000000"/>
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">

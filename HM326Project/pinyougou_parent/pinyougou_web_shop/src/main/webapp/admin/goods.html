@@ -24,7 +24,9 @@
     <script type="text/javascript" src="../js/base_pagination.js"></script>
     <script type="text/javascript" src="../js/controller/baseController.js"></script>
     <script type="text/javascript" src="../js/controller/goodsController.js"></script>
+    <script type="text/javascript" src="../js/controller/seckillGoodsController.js"></script>
     <script type="text/javascript" src="../js/service/goodsService.js"></script>
+    <script type="text/javascript" src="../js/service/seckillGoodsService.js"></script>
     <script type="text/javascript" src="../js/service/itemCatService.js"></script>
     <script type="text/javascript" src="../js/service/uploadService.js"></script>  
     <script type="text/javascript" src="../js/service/typeTemplateService.js"></script>  
@@ -60,11 +62,11 @@
                                   		状态：<select ng-model="searchEntity.auditStatus">
                                          	<option value="">全部</option>      
                                          	<option value="0">未审核</option>
-                                         	<option value="1">审核通过</option>    
-                                         	<option value="2">审核未通过</option>    
-                                         	<option value="3">关闭</option>                                     
+                                         	<option value="1">审核通过</option>
+                                         	<option value="2">审核未通过</option>
+                                         	<option value="3">关闭</option>
                                         </select>
-							                  商品名称：<input type="text" ng-model="searchEntity.goodsName">									
+							                  商品名称：<input type="text" ng-model="searchEntity.goodsName">
 									<button class="btn btn-default" ng-click="reloadList()">查询</button>                                    
                                 </div>
                             </div>
@@ -85,6 +87,7 @@
 									      <th class="sorting">三级分类</th>
 									      <th class="sorting">状态</th>									     						
 					                      <th class="text-center">操作</th>
+					                      <th class="text-center">秒杀商品</th>
 			                          </tr>
 			                      </thead>
 			                      <tbody>
@@ -104,7 +107,11 @@
 		                                  <td class="text-center">
 		                                  	  <a class="btn bg-olive btn-xs" href="goods_edit.html#?id={{entity.id}}">修改</a>                                
 		                                  </td>
-			                          </tr>
+                                          <td class="text-center">
+                                              <a class="btn bg-olive btn-xs" href="seckillgoods.html" ng-click="seckilApply()">申请</a>
+                                          </td>
+
+                                      </tr>
 			                      </tbody>
 			                  </table>
 			                  <!--数据列表/-->                        
