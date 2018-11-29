@@ -287,4 +287,9 @@ public class GoodsServiceImpl implements GoodsService {
             jmsTemplate.convertAndSend(delMSGDestination, map);
         }
     }
+
+    @Override
+    public List<Goods> findList() {
+        return goodsDao.selectByExample(null);
+    }
 }

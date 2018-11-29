@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="pinyougou_service_pay:war exploded">
-    <output-path>$PROJECT_DIR$/pinyougou_parent/pinyougou_service_pay/target/pinyougou_service_pay</output-path>
+    <output-path />
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -94,6 +94,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.7" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.7" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.8" />
           <element id="library" level="project" name="Maven: com.github.wxpay:wxpay-sdk:0.0.3" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.4" />
