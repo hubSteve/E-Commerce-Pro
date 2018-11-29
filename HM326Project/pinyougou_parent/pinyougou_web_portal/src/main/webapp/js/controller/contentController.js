@@ -11,5 +11,13 @@ app.controller("contentController",function($scope,contentService){
 	$scope.search=function(){
 		location.href="http://localhost:9102/search.html#?keywords="+$scope.keywords;
 	}
-	
+
+    //查询商品分类信息
+    $scope.findItemCatList=function () {
+        contentService.findItemCatList().success(function (response) {
+            $scope.itemCatList=response;
+        })
+    }
+
+
 });

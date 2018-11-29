@@ -2,6 +2,11 @@ package cn.itcast.core.service.user;
 
 import cn.itcast.core.pojo.user.User;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+import org.aspectj.weaver.ast.Or;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -30,4 +35,8 @@ public interface UserService {
      * @param ids
      */
     void delete(long[] ids);
+
+    List<Order> findCartList(String userId);
+
+    PageInfo<Order> abfindCartList(Integer Page, Integer pageSize, String username );
 }

@@ -24,4 +24,7 @@ public interface ItemCatService {
      * @param ids
      */
     void delete(long[] ids);
+
+    public List<ItemCat> findItemCatList();
+
 }
