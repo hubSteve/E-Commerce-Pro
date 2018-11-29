@@ -3,19 +3,19 @@ package cn.itcast.core.service.user;
 
 import cn.itcast.core.dao.order.OrderDao;
 import cn.itcast.core.dao.user.UserDao;
+
 import cn.itcast.core.pojo.order.Order;
 import cn.itcast.core.pojo.order.OrderQuery;
 import cn.itcast.core.pojo.user.User;
 import cn.itcast.core.pojo.user.UserQuery;
-import cn.itcast.core.service.user.UserService;
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
+
+
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.aspectj.weaver.ast.Var;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.core.JmsTemplate;
 
