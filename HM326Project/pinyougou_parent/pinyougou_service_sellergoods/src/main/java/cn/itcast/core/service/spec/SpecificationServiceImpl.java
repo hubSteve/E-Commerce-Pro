@@ -106,4 +106,13 @@ public class SpecificationServiceImpl implements SpecificationService {
     public List<Map<String, String>> selectOptionList() {
         return specificationDao.selectOptionList();
     }
+	
+	@Override
+    public void addSpecList(List<Specification> specificationList) {
+        if (specificationList!=null && specificationList.size()>0){
+            for (Specification specification : specificationList) {
+                specificationDao.insert(specification);
+            }
+        }
+    }
 }

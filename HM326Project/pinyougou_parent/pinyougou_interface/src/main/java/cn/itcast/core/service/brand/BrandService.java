@@ -23,4 +23,6 @@ public interface BrandService {
     void delete(long[] ids);
 
     List<Map<String,String>> selectOptionList();
+	
+	void addBrandList(List<Brand> brandList);
 }

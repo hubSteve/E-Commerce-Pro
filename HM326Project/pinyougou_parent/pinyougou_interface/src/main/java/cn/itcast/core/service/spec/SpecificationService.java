@@ -22,4 +22,6 @@ public interface SpecificationService {
     void delete(long[] ids);
 
     List<Map<String,String>> selectOptionList();
+	
+	void addSpecList(List<Specification> specificationList);
 }

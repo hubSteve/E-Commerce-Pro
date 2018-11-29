@@ -42,6 +42,12 @@
                                         <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o"></i> 删除</button>           
                                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
                                     </div>
+									<div>
+                                        <form action="/import/readBrandXls.do" enctype="multipart/form-data" method="post">
+                                            <input type="file" name="file"/>
+                                            <input type="submit" value="导入Excel">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="box-tools pull-right">

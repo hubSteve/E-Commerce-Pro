@@ -83,4 +83,24 @@ public class BrandServiceImpl implements BrandService {
     public List<Map<String, String>> selectOptionList() {
         return  brandDao.selectOptionList();
     }
+	
+	@Override
+    public void addBrandList(List<Brand> brandList) {
+        List<Brand> brands = brandDao.selectByExample(null);
+        List<String> brandNameList=new ArrayList<>();
+        if (brands!=null && brands.size()>0){
+            for (Brand brand : brands) {
+                brandNameList.add(brand.getName());
+            }
+        }
+
+        if (brandList!=null && brandList.size()>0){
+            for (Brand newbrand : brandList) {
+                if (brandNameList.contains(newbrand.getName())){
+                    continue;
+                }
+                brandDao.insertSelective(newbrand);
+            }
+        }
+    }
 }

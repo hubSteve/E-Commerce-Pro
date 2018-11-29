@@ -148,4 +148,9 @@ public class OrderServiceImpl implements OrderService {
         //删除redis中的payLog信息
         redisTemplate.boundHashOps("payLog").delete(payLog.getUserId());
     }
+	
+	@Override
+    public List<Order> findAll() {
+        return orderDao.selectByExample(null);
+    }
 }
