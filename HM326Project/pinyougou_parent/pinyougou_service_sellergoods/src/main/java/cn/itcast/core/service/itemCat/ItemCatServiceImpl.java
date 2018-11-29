@@ -42,6 +42,7 @@ public class ItemCatServiceImpl implements ItemCatService{
 
     @Override
     public void add(ItemCat itemCat) {
+        itemCat.setStatus("0");
         itemCatDao.insertSelective(itemCat);
     }
 
@@ -53,6 +54,48 @@ public class ItemCatServiceImpl implements ItemCatService{
     @Override
     public List<ItemCat> findAll() {
         return itemCatDao.selectByExample(null);
+    }
+
+
+    /**更新对应数据
+     * @param itemCat
+     */
+    @Override
+    public void update(ItemCat itemCat) {
+
+        itemCatDao.updateByPrimaryKeySelective(itemCat);
+    }
+
+    @Override
+    public void delete(long[] ids) {
+        if (ids!=null&&ids.length>0){
+            for (long id : ids) {
+
+                itemCatDao.deleteByPrimaryKey(id);
+            }
+
+        }
+    }
+
+
+    @Override
+    public List<ItemCat> findItemCatList() {
+        List<ItemCat> itemCatList = (List<ItemCat>) redisTemplate.boundHashOps("itemCatList").get("indexItemCat");
+        if (itemCatList==null){
+            List<ItemCat> itemCatList1 = itemCatDao.findItemCatListByParentId(0L);
+            for (ItemCat itemCat1 : itemCatList1) {
+                List<ItemCat> itemCatList12 = itemCatDao.findItemCatListByParentId(itemCat1.getId());
+                for (ItemCat itemCat2 : itemCatList12) {
+                    List<ItemCat> itemCatList3 = itemCatDao.findItemCatListByParentId(itemCat2.getId());
+                    itemCat2.setItemCatList(itemCatList3);
+                }
+                itemCat1.setItemCatList(itemCatList12);
+            }
+            redisTemplate.boundHashOps("itemCatList").put("indexItemCat",itemCatList1);
+
+            return itemCatList1;
+        }
+        return itemCatList;
     }
 
 

@@ -28,4 +28,6 @@ public interface BrandService {
     PageResult searchforStatus(Integer pageNum, Integer pageSize, Brand brand);
     //审核品牌
     void updateStatus(long[]ids,String status);
+
+	void addBrandList(List<Brand> brandList);
 }

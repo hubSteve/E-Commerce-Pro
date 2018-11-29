@@ -213,4 +213,22 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <sql id="addd">
+    id, parent_id, name, type_id ,status
+    </sql>
+  <!--id为TbItemCatMapper接口的方法名-->
+  <select id="findItemCatListByParentId" resultMap="BaseResultMap">
+    select
+    /*这里查询直接用字段名，查询的性能会比用*高一点*/
+    <include refid="addd"/>
+    from
+    tb_item_cat
+    where
+    /*parentId为findItemCatListByParentId方法传递的参数*/
+    parent_id=#{parentId}
+  </select>
+
+
+
 </mapper>

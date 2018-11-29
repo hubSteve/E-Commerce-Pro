@@ -170,5 +170,12 @@
             <artifactId>spring-data-solr</artifactId>
             <version>1.5.5.RELEASE</version>
         </dependency>
+
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.8</version>
+        </dependency>
     </dependencies>
 </project>

@@ -11,7 +11,8 @@ import java.util.Map;
 
 public interface SpecificationService {
 
-    PageInfo<Specification> search(Integer page,Integer rows,Specification specification);
+    public PageInfo<Specification> search(Integer page, Integer rows, Specification specification);
+
 
     void add(SpecificationVo specificationVo);
 
@@ -28,4 +29,6 @@ public interface SpecificationService {
 
     //审核
     void updateStatus(long[]ids,String status);
+
+	void addSpecList(List<Specification> specificationList);
 }

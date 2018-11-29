@@ -4,6 +4,8 @@ import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.vo.GoodsVo;
 import com.github.pagehelper.PageInfo;
 
+import java.util.List;
+
 public interface GoodsService {
 
     void add(GoodsVo goodsVo);
@@ -18,5 +20,7 @@ public interface GoodsService {
 
     void updateStatus(long[] ids,String status);
 
-    void delete(long[] ids);
+    void delete(long[] ids,int i);
+
+    List<Goods> findList();
 }

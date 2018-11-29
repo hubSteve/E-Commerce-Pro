@@ -12,6 +12,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +46,10 @@ public class BrandServiceImpl implements BrandService {
         if (brand.getFirstChar()!=null && !"".equals(brand.getFirstChar().trim())){
             criteria.andFirstCharEqualTo(brand.getFirstChar().trim());
         }
+        if (brand.getStatus()!=null && !"".equals(brand.getStatus().trim())){
+            criteria.andStatusLike("%"+brand.getStatus().trim()+"%");
+        }
+
         brandQuery.setOrderByClause("id desc");
         List<Brand> brandList = brandDao.selectByExample(brandQuery);
         PageInfo<Brand> pageInfo = new PageInfo<>(brandList);
@@ -54,6 +59,7 @@ public class BrandServiceImpl implements BrandService {
     @Transactional
     @Override
     public void addBrand(Brand brand) {
+        brand.setStatus("0");
         brandDao.insertSelective(brand);
     }
 
@@ -118,5 +124,25 @@ public class BrandServiceImpl implements BrandService {
             }
         }
 
+    }
+
+	@Override
+    public void addBrandList(List<Brand> brandList) {
+        List<Brand> brands = brandDao.selectByExample(null);
+        List<String> brandNameList=new ArrayList<>();
+        if (brands!=null && brands.size()>0){
+            for (Brand brand : brands) {
+                brandNameList.add(brand.getName());
+            }
+        }
+
+        if (brandList!=null && brandList.size()>0){
+            for (Brand newbrand : brandList) {
+                if (brandNameList.contains(newbrand.getName())){
+                    continue;
+                }
+                brandDao.insertSelective(newbrand);
+            }
+        }
     }
 }

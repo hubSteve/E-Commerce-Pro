@@ -19,4 +19,18 @@ public interface ItemCatService {
     PageResult searchItemCatListByStatus (Integer page,Integer rows,ItemCat itemCat);
     //审核
     void updateStatus(long[]ids,String status);
+
+
+    /**更新数据
+     * @param itemCat
+     */
+    void update(ItemCat itemCat);
+
+    /**批量删除数据
+     * @param ids
+     */
+    void delete(long[] ids);
+
+    public List<ItemCat> findItemCatList();
+
 }
