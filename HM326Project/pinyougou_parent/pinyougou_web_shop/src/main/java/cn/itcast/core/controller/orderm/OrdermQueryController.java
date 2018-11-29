@@ -23,10 +23,10 @@ public class OrdermQueryController {
         return ordermQueryService.OrdermQuery(pageNum, pageSize, order);
     }
 
-    @RequestMapping("/orderf.do")
+  /*  @RequestMapping("/orderf.do")
     public PageResult orderf(Integer pageNum, Integer pageSize, @RequestBody Order order) {
         String sellerId = SecurityContextHolder.getContext().getAuthentication().getName();
         order.setSellerId(sellerId);
         return ordermQueryService.OrdermQuery(pageNum, pageSize, order);
-    }
+    }*/
 }

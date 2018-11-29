@@ -1,5 +1,5 @@
 // 定义控制器:
-app.controller("ordermController",function($scope,$controller,$http,ordermService,$http,orderfService){
+app.controller("ordermController",function($scope,$controller,$http,ordermService){
     // 分页查询
 // AngularJS中的继承:伪继承
     $controller('baseController',{$scope:$scope});
@@ -81,17 +81,17 @@ app.controller("ordermController",function($scope,$controller,$http,ordermServic
             $scope.list = response.rows;
         });
     }
-    $scope.searchEntity={};
+  /*  $scope.searchEntity={};
 
     // 假设定义一个查询的实体：searchEntity
     $scope.search = function(page,rows){
-        /*alert("asa");*/
+        /!*alert("asa");*!/
         // 向后台发送请求获取数据:
         ordermService.search(page,rows,$scope.searchEntity).success(function(response){
             $scope.paginationConf.totalItems = response.total;
             $scope.list = response.rows;
         });
-    }
+    }*/
 
 
 

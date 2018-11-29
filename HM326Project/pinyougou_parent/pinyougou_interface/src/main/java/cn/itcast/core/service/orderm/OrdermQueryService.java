@@ -13,5 +13,5 @@ public interface OrdermQueryService {
      */
     public PageResult OrdermQuery(Integer pageNum, Integer pageSize, Order order);
 
-    public PageResult Orderf(Integer pageNum, Integer pageSize, Order order);
+  /*  public PageResult Orderf(Integer pageNum, Integer pageSize, Order order);*/
 }

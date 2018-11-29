@@ -33,7 +33,7 @@ public class OrdermQueryServiceImpl implements OrdermQueryService {
         return new PageResult(page.getTotal(),page.getResult());
     }
 
-    @Override
+   /* @Override
     public PageResult Orderf(Integer pageNum, Integer pageSize, Order order) {
         // 设置分页条件
         PageHelper.startPage(pageNum,pageSize);
@@ -48,7 +48,7 @@ public class OrdermQueryServiceImpl implements OrdermQueryService {
         PageHelper.orderBy("create_time desc");
         Page<Order> page = (Page<Order>) orderDao.selectByExample(query);
         return new PageResult(page.getTotal(),page.getResult());
-    }
+    }*/
 
  }
 
