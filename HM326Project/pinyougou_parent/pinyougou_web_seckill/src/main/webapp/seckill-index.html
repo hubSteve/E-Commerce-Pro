@@ -20,7 +20,7 @@
     
 </head>
 
-<body ng-app="pinyougou" ng-controller="seckillGoodsController" ng-init="findList()">
+<body ng-app="pinyougou" ng-controller="seckillGoodsController" ng-init="findList();findOne()">
 	<!-- 头部栏位 -->
 	<!--页面顶部-->
 <div id="nav-bottom">
@@ -172,6 +172,10 @@ $(function(){
 			<ul class="seckill" id="seckill">
 				
 				<li class="seckill-item" ng-repeat="pojo in list">
+                    <div class="news" >
+                        <span><img src="img/_/clock.png"/>品优秒杀</span>
+                        <span class="overtime">已经开始：{{timeString}}</span>
+                    </div>
 					<div class="pic">
 						<img src="{{pojo.smallPic}}" width="290px" height="290px" alt=''  >
 					</div>

@@ -189,9 +189,10 @@ $(function(){
 						<h4>{{entity.title}}</h4>
 					</div>
 					<div class="news">
-						<span><img src="img/_/clock.png"/>品优秒杀</span>
-						<span class="overtime">距离结束：{{timeString}}</span>
-						</div>
+                    <span><img src="img/_/clock.png"/>品优秒杀</span>
+                    <span class="overtime" ng-if="result == '0'">距离结束：{{timeString}}</span>
+                    <span class="overtime" ng-if="result == '1'">距离开始：{{timeString}}</span>
+                </div>
 					<div class="summary">
 						<div class="summary-wrap">
 							

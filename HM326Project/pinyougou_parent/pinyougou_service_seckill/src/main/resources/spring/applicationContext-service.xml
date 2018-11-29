@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
@@ -10,11 +11,14 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
-">
+
+
+    ">
+
 
     <dubbo:application name="pinyougou_service_seckill"/>
 
-    <dubbo:registry address="zookeeper://192.168.23.67:2181"/>
+    <dubbo:registry address="zookeeper://192.168.23.65:2181"/>
 
     <dubbo:annotation package="cn.itcast.core.service"/>
 

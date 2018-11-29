@@ -14,21 +14,25 @@ app.controller('seckillGoodsController' ,function($scope,$location,seckillGoodsS
 		//接收参数ID
 		var id= $location.search()['id'];
 		seckillGoodsService.findOne(id).success(
-			function(response){
-				$scope.entity=response;
-				
-				//倒计时开始
-				//获取从结束时间到当前日期的秒数
-				allsecond=Math.floor((new Date(response.endTime).getTime()-new Date().getTime())/1000);
-				time=$interval(function () {
-					allsecond--;
-					$scope.timeString=convertTimeString(allsecond);
-					if (allsecond<=0){
-						$interval.cancel(time);
-					}
-                },1000)
-			}		
-		);		
+			function(response) {
+                $scope.entity = response;
+
+                //倒计时开始
+                //获取从结束时间到当前日期的秒数
+
+                allsecond = Math.floor((new Date(response.endTime).getTime() - new Date().getTime()) / 1000);
+                gapSeconds = (new Date().getTime()) - (new Date('2018-11-29 16:09:00').getTime());
+                $scope.result = gapSeconds > 0 ? "0" : "1";
+                alert($scope.result)
+                time = $interval(function () {
+                    allsecond--;
+                    $scope.timeString = convertTimeString(allsecond);
+                    if (allsecond <= 0) {
+                        $interval.cancel(time);
+                    }
+                }, 1000)
+            }
+		);
 	}
 	
 	
