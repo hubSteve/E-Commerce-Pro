@@ -82,8 +82,7 @@ app.controller("userManagerController",function($scope,$controller,$http,userMan
 	
 	// 假设定义一个查询的实体：searchEntity
 	$scope.search = function(page,rows){
-		alert("1");
-		alert(page);
+		alert(JSON.stringify(searchEntity));
 		// 向后台发送请求获取数据:
         userManagerService.search(page,rows,$scope.searchEntity).success(function(response){
 			$scope.paginationConf.totalItems = response.total;
