@@ -17,4 +17,13 @@ public interface TypeTemplateService {
     void update(TypeTemplate typeTemplate);
 
     List<Map> findBySpecList(long id);
+
+
+    /**商品分类添加 查询模板信息
+     * @return {id:"",text:" "} 格式
+     */
+    List<Map> selectTypeTemplateList();
+
+
+    void delete(long[] ids);
 }

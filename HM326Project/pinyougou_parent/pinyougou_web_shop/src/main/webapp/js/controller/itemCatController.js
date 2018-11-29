@@ -45,7 +45,8 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		serviceObject.success(
 			function(response){
 				if(response.flag){
-					//重新查询 
+                    alert(response.message);
+                    //重新查询
 		        	$scope.findByParentId($scope.parentId);//重新加载
 				}else{
 					alert(response.message);
@@ -53,7 +54,11 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 			}		
 		);				
 	}
-	
+
+
+    // 显示状态
+    $scope.status = ["未审核","审核通过","审核未通过","关闭"];
+
 	 
 	//批量删除 
 	$scope.dele=function(){

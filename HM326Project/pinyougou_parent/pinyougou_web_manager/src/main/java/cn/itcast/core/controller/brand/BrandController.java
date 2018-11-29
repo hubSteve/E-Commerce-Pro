@@ -54,6 +54,7 @@ public class BrandController {
     }
 
     @RequestMapping("update")
+
     public Result update(@RequestBody Brand brand){
         try {
             brandService.update(brand);

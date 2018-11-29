@@ -95,14 +95,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.7" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.7" />
-          <element id="library" level="project" name="Maven: com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0" />
+          <element id="library" level="project" name="Maven: com.aliyun:aliyun-java-sdk-dysmsapi:1.0.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: com.aliyun:aliyun-java-sdk-core:3.2.5" />
-          <element id="archive" name="pinyougou_dao-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="pinyougou_dao" />
-          </element>
-          <element id="archive" name="pinyougou_pojo-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="pinyougou_pojo" />
-          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -55,30 +55,38 @@ app.controller("brandController",function($scope,$controller,$http,brandService)
 	
 	// 删除品牌:
 	$scope.dele = function(){
-		brandService.dele($scope.selectIds).success(function(response){
-			// 判断保存是否成功:
-			if(response.flag==true){
-				// 保存成功
-				// alert(response.message);
-				$scope.reloadList();
-				$scope.selectIds = [];
-			}else{
-				// 保存失败
-				alert(response.message);
-			}
-		});
+		if (confirm("亲!确认要删除吗")) {
+            brandService.dele($scope.selectIds).success(function (response) {
+                // 判断保存是否成功:
+                if (response.flag == true) {
+                    // 保存成功
+                    // alert(response.message);
+                    $scope.reloadList();
+                    alert(response.message);
+                    $scope.selectIds = [];
+                } else {
+                    // 保存失败
+                    alert(response.message);
+                }
+            });
+        }
 	}
 	
 	$scope.searchEntity={};
 	
 	// 假设定义一个查询的实体：searchEntity
 	$scope.search = function(page,rows){
-		alert("page")
 		// 向后台发送请求获取数据:
 		brandService.search(page,rows,$scope.searchEntity).success(function(response){
 			$scope.paginationConf.totalItems = response.total;
 			$scope.list = response.list;
 		});
 	}
+
+
+    // 显示状态
+    $scope.status = ["未审核","审核通过","审核未通过","关闭"];
+
+
 	
 });
