@@ -28,5 +28,13 @@ app.service('typeTemplateService',function($http){
 	//搜索
 	this.search=function(page,rows,searchEntity){
 		return $http.post('../typeTemplate/search.do?page='+page+"&rows="+rows, searchEntity);
-	}    	
+	}
+	//显示所有status==1的模板
+    this.searchTemlListByStatus=function(page,rows,searchEntity){
+        return $http.post('../typeTemplate/searchTemlListByStatus.do?page='+page+"&rows="+rows, searchEntity);
+    }
+    //批量审核模板的方法
+    this.updateStatus = function(ids,status){
+        return $http.get('../typeTemplate/updateStatus.do?ids='+ids+"&status="+status);
+    }
 });

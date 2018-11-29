@@ -1,8 +1,8 @@
  //控制层 
 app.controller('specificationController' ,function($scope,$controller   ,specificationService){	
-	
+
 	$controller('baseController',{$scope:$scope});//继承
-	
+
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){
 		specificationService.findAll().success(
@@ -68,7 +68,7 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 	$scope.searchEntity={};//定义搜索对象 
 	
 	//搜索
-	$scope.search=function(page,rows){			
+	$scope.search=function(page,rows){
 		specificationService.search(page,rows,$scope.searchEntity).success(
 			function(response){
 				$scope.list=response.list;
@@ -86,5 +86,5 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 	$scope.deleteTableRow = function(index){
 		$scope.entity.specificationOptionList.splice(index,1);
 	}
-    
+
 });	

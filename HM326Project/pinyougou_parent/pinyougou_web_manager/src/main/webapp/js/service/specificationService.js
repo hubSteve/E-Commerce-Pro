@@ -33,4 +33,14 @@ app.service('specificationService',function($http){
 	this.selectOptionList=function(){
 		return $http.get("../specification/selectOptionList.do");
 	}
+
+	//查询status==0的规格
+	this.findSpecByStatus=function(page,rows,searchEntity){
+        return $http.post('../specification/findSpecByStatus.do?page='+page+"&rows="+rows, searchEntity);
+    }
+
+    //审核的方法
+    this.updateStatus = function(ids,status){
+        return $http.get('../specification/updateStatus.do?ids='+ids+"&status="+status);
+    }
 });

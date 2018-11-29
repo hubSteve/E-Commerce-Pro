@@ -1,5 +1,6 @@
 package cn.itcast.core.controller.brand;
 
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.entity.Result;
 import cn.itcast.core.pojo.good.Brand;
 import cn.itcast.core.service.brand.BrandService;
@@ -54,6 +55,7 @@ public class BrandController {
     }
 
     @RequestMapping("update")
+
     public Result update(@RequestBody Brand brand){
         try {
             brandService.update(brand);
@@ -78,5 +80,23 @@ public class BrandController {
     @RequestMapping("selectOptionList")
     public List<Map<String,String>> selectOptionList(){
         return brandService.selectOptionList();
+    }
+
+    //显示所有状态为1的品牌
+    @RequestMapping("searchforStatus")
+    public PageResult searchforStatus(Integer pageNum, Integer pageSize, @RequestBody Brand brand){
+        PageResult pageResult = brandService.searchforStatus(pageNum, pageSize, brand);
+        return pageResult;
+    }
+    //审核品牌
+    @RequestMapping("updateStatus")
+    public Result updateStatus(long[]ids,String status){
+        try{
+            brandService.updateStatus(ids,status);
+            return new Result(true,"操作成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,"操作失败");
+        }
     }
 }

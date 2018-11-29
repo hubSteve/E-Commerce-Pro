@@ -18,9 +18,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -288,5 +286,10 @@ public class GoodsServiceImpl implements GoodsService {
             map.put("goodsIds", itemIdStr);
             jmsTemplate.convertAndSend(delMSGDestination, map);
         }
+    }
+
+    @Override
+    public List<Goods> findList() {
+        return goodsDao.selectByExample(null);
     }
 }

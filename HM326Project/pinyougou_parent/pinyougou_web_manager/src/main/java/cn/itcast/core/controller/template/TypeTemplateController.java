@@ -1,5 +1,6 @@
 package cn.itcast.core.controller.template;
 
+import cn.itcast.core.entity.PageResult;
 import cn.itcast.core.entity.Result;
 import cn.itcast.core.pojo.template.TypeTemplate;
 import cn.itcast.core.service.template.TypeTemplateService;
@@ -19,7 +20,8 @@ public class TypeTemplateController {
 
     @RequestMapping("search")
     public PageInfo<TypeTemplate> search(Integer page, Integer rows, @RequestBody TypeTemplate typeTemplate){
-        return typeTemplateService.search(page,rows,typeTemplate);
+        PageInfo<TypeTemplate> pageInfo = typeTemplateService.search(page, rows, typeTemplate);
+        return pageInfo;
     }
 
     @RequestMapping("add")
@@ -46,6 +48,25 @@ public class TypeTemplateController {
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false, "更新失败");
+        }
+    }
+
+    //查询status==1的所有的模板
+    @RequestMapping("searchTemlListByStatus")
+    public PageResult searchTemlListByStatus(Integer page, Integer rows, @RequestBody TypeTemplate typeTemplate){
+        PageResult pageResult = typeTemplateService.searchTemlListByStatus(page, rows, typeTemplate);
+        return pageResult;
+    }
+
+    //审核的方法
+    @RequestMapping("updateStatus")
+    public Result updateStatus(long[]ids,String status){
+        try{
+            typeTemplateService.updateStatus(ids, status);
+            return new Result(true,"操作成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,"操作失败");
         }
     }
 }

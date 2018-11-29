@@ -57,6 +57,12 @@
                                        
                                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
                                     </div>
+									<div>
+										<form action="/import/readTemplateXls.do" enctype="multipart/form-data" method="post">
+											<input type="file" name="file"/>
+											<input type="submit" value="导入Excel">
+										</form>
+									</div>
                                 </div>
                             </div>
                             <div class="box-tools pull-right">
@@ -78,7 +84,7 @@
 									      <th class="sorting">分类模板名称</th>
 									      <th class="sorting">关联品牌</th>
 									      <th class="sorting">关联规格</th>									     
-									      <th class="sorting">扩展属性</th>													     						
+									      <th class="sorting">扩展属性</th>
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
@@ -89,7 +95,7 @@
 									      <td>{{entity.name}}</td>
 									      <td>{{jsonToString(entity.brandIds,'text')}}</td>
 									      <td>{{jsonToString(entity.specIds,'text')}}</td>									 
-									      <td>{{jsonToString(entity.customAttributeItems,'text')}}</td>		                                                                  
+									      <td>{{jsonToString(entity.customAttributeItems,'text')}}</td>
 		                                  <td class="text-center">                                           
 		                                 	  <button type="button" class="btn bg-olive btn-xs" ng-click="findOne(entity.id)" data-toggle="modal" data-target="#editModal" >修改</button>                                           
 		                                  </td>
