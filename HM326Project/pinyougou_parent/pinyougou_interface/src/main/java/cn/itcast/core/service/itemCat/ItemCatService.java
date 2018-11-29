@@ -13,4 +13,18 @@ public interface ItemCatService {
     ItemCat findOne(long id);
 
     List<ItemCat> findAll();
+
+
+    /**更新数据
+     * @param itemCat
+     */
+    void update(ItemCat itemCat);
+
+    /**批量删除数据
+     * @param ids
+     */
+    void delete(long[] ids);
+
+    public List<ItemCat> findItemCatList();
+
 }

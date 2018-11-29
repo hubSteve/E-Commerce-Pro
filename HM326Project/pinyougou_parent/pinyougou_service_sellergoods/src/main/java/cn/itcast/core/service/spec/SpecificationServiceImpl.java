@@ -44,6 +44,7 @@ public class SpecificationServiceImpl implements SpecificationService {
     @Override
     public void add(SpecificationVo specificationVo) {
         Specification specification = specificationVo.getSpecification();
+        specification.setStatus("0");
         specificationDao.insertSelective(specification);
 
         List<SpecificationOption> specificationOptionList = specificationVo.getSpecificationOptionList();

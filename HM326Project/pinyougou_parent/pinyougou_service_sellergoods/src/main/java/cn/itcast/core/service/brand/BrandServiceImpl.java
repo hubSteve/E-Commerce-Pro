@@ -43,6 +43,10 @@ public class BrandServiceImpl implements BrandService {
         if (brand.getFirstChar()!=null && !"".equals(brand.getFirstChar().trim())){
             criteria.andFirstCharEqualTo(brand.getFirstChar().trim());
         }
+        if (brand.getStatus()!=null && !"".equals(brand.getStatus().trim())){
+            criteria.andStatusLike("%"+brand.getStatus().trim()+"%");
+        }
+
         brandQuery.setOrderByClause("id desc");
         List<Brand> brandList = brandDao.selectByExample(brandQuery);
         PageInfo<Brand> pageInfo = new PageInfo<>(brandList);
@@ -52,6 +56,7 @@ public class BrandServiceImpl implements BrandService {
     @Transactional
     @Override
     public void addBrand(Brand brand) {
+        brand.setStatus("0");
         brandDao.insertSelective(brand);
     }
 
