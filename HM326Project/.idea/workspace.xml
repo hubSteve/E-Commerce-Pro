@@ -129,7 +129,7 @@
       <file leaf-file-name="springmvc.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_user/src/main/resources/spring/springmvc.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
+            <state relative-caret-position="621">
               <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
               <folding />
             </state>
@@ -2110,7 +2110,7 @@
       <workItem from="1543313161687" duration="9474000" />
       <workItem from="1543366560854" duration="28366000" />
       <workItem from="1543409879544" duration="2372000" />
-      <workItem from="1543453409949" duration="2292000" />
+      <workItem from="1543453409949" duration="2314000" />
     </task>
     <task id="LOCAL-00001" summary="修改pojo">
       <created>1543226458779</created>
@@ -2147,11 +2147,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543459820355</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="秒杀商品">
+      <created>1543459834404</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543459834404</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372511000" />
+    <option name="totallyTimeSpent" value="372533000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2606,7 +2613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pinyougou_parent/pinyougou_web_user/src/main/resources/spring/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="621">
           <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding />
         </state>
