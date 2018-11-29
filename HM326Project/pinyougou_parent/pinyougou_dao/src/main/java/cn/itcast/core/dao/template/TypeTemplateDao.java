@@ -5,6 +5,7 @@ import cn.itcast.core.pojo.template.TypeTemplateQuery;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TypeTemplateDao {
     int countByExample(TypeTemplateQuery example);
@@ -28,4 +29,10 @@ public interface TypeTemplateDao {
     int updateByPrimaryKeySelective(TypeTemplate record);
 
     int updateByPrimaryKey(TypeTemplate record);
+
+
+    /** 商品分类添加 查询模板信息
+     * @return
+     */
+    List<Map> selectTypeTemplateList();
 }

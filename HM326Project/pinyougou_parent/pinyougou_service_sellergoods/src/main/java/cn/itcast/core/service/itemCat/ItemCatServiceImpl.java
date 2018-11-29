@@ -16,7 +16,7 @@ public class ItemCatServiceImpl implements ItemCatService{
     private ItemCatDao itemCatDao;
 
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String,Object> redisTemplate;
 
 
     @Override
@@ -36,6 +36,7 @@ public class ItemCatServiceImpl implements ItemCatService{
 
     @Override
     public void add(ItemCat itemCat) {
+        itemCat.setStatus("0");
         itemCatDao.insertSelective(itemCat);
     }
 
@@ -47,6 +48,27 @@ public class ItemCatServiceImpl implements ItemCatService{
     @Override
     public List<ItemCat> findAll() {
         return itemCatDao.selectByExample(null);
+    }
+
+
+    /**更新对应数据
+     * @param itemCat
+     */
+    @Override
+    public void update(ItemCat itemCat) {
+
+        itemCatDao.updateByPrimaryKeySelective(itemCat);
+    }
+
+    @Override
+    public void delete(long[] ids) {
+        if (ids!=null&&ids.length>0){
+            for (long id : ids) {
+
+                itemCatDao.deleteByPrimaryKey(id);
+            }
+
+        }
     }
 
 

@@ -230,4 +230,11 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+  <!-- 添加商品分类 查询模板信息-->
+  <select id="selectTypeTemplateList" resultType="map">
+    select id,name text from tb_type_template
+  </select>
+
 </mapper>

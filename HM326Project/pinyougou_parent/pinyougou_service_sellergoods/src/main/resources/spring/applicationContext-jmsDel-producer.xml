@@ -27,9 +27,9 @@
         <property name="connectionFactory" ref="connectionFactory"/>
     </bean>
     <!--这个是队列目的地，点对点的 文本信息-->
-    <bean id="goodsMSGDestination"
+    <bean id="delMSGDestination"
           class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg value="queue_goods"/>
+        <constructor-arg value="queue_itemDel"/>
     </bean>
 
 </beans>

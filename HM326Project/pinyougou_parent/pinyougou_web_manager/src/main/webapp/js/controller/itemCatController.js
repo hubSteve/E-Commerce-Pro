@@ -33,7 +33,6 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		);				
 	}
 
-	
 	//保存 
 	$scope.save=function(){				
 		var serviceObject;//服务层对象  				
@@ -57,16 +56,21 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 	
 	 
 	//批量删除 
-	$scope.dele=function(){			
-		//获取选中的复选框			
-		itemCatService.dele( $scope.selectIds ).success(
-			function(response){
-				if(response.flag){
-					$scope.reloadList();//刷新列表
-					$scope.selectIds = [];
-				}						
-			}		
-		);				
+	$scope.dele=function(){
+
+		if(confirm("亲·确定删除吗?")){
+            //获取选中的复选框
+            itemCatService.dele($scope.selectIds).success(
+                function (response) {
+                	alert($scope.selectIds)
+                    if (response.flag) {
+                    	alert(response.message);
+                        $scope.findByParentId($scope.parentId);//重新加载
+                        $scope.selectIds = [];
+                    }
+                }
+            );
+        }
 	}
 	
 	$scope.searchEntity={};//定义搜索对象 
@@ -113,15 +117,19 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		
 		$scope.findByParentId(p_entity.id);
 	}
+
+
+
+
+
+    $scope.specList=[];
+    // 查询关联模板信息
+    $scope.findTypeTemplateList = function(){
+        itemCatService.selectTypeTemplateList().success(function(response){
+            $scope.specList = response;
+        });
+    }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
     
 });	

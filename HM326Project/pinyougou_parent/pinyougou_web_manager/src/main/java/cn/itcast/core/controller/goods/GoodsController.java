@@ -18,9 +18,6 @@ public class GoodsController {
     @Reference
     private GoodsService goodsService;
 
-    @Reference
-    private ItemPageService itemPageService;
-
     @RequestMapping("search")
     public PageInfo<Goods> search(@PathVariable() Integer page, Integer rows, @RequestBody Goods goods){
         return goodsService.searchForManager(page,rows,goods);
@@ -39,8 +36,9 @@ public class GoodsController {
 
     @RequestMapping("delete")
     public Result delete(long[] ids){
+        int i = 200;
         try {
-            goodsService.delete(ids);
+            goodsService.delete(ids,i);
             return new Result(true,"删除成功");
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,9 +46,9 @@ public class GoodsController {
         }
     }
 
-    @RequestMapping("getHtml")
+/*    @RequestMapping("getHtml")
     public void getHtml(long goodsId){
         itemPageService.getItemHtml(goodsId);
-    }
+    }*/
 
 }
